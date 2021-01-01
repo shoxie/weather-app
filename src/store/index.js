@@ -37,7 +37,7 @@ export default new Vuex.Store({
             });
             Vue.axios
               .get(
-                `https://www.metaweather.com/api/location/search/?lattlong=${data.data.lat},${data.data.lon}`
+                `https://www.metaweather.com/api/location/search/?lattlong=${data.data.lat},${data.data.lon}`, { crossdomain: true }
               )
               .then((city) => {
                 console.log(city);
