@@ -14,11 +14,11 @@ export default new Vuex.Store({
     backgroundUrl: "",
     lat: "",
     lon: "",
+    forecast: "",
   },
   mutations: {
-    updateCountry(state) {
-      console.log(window.location.host)
-      Vue.axios.get("https://api.ipify.org?format=json").then((res) => {
+    async updateCountry(state) {
+      await Vue.axios.get("https://api.ipify.org?format=json").then((res) => {
         if (!res.data) return;
         Vue.axios
           .get(
@@ -32,15 +32,20 @@ export default new Vuex.Store({
             state.lat = data.data.lat;
             state.lon = data.data.lon;
             let query = data.data.city;
-            client.photos.search({ query, per_page: 1 }).then((data) => {
-              state.backgroundUrl = data.photos[0].src.original;
+            client.photos.search({ query, per_page: 1 }).then((cac) => {
+              state.backgroundUrl = cac.photos[0].src.original;
             });
             Vue.axios
               .get(
-                `https://www.metaweather.com/api/location/search/?lattlong=${data.data.lat},${data.data.lon}`, { crossdomain: true }
+                `http://103.90.233.35:3000/cityid?lat=${data.data.lat}&lon=${data.data.lon}`
               )
               .then((city) => {
                 console.log(city);
+                Vue.axios
+                  .get(`http://103.90.233.35:3000/weather?id=${city.data.id}`)
+                  .then((forecast) => {
+                    state.forecast = forecast.data.consolidated_weather;
+                  });
               });
           });
       });

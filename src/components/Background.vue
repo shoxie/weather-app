@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-cover h-96 flex flex-row pl-20 rounded-2xl"
+    class="bg-cover h-96 flex flex-row pl-20 rounded-2xl container mx-auto"
     :style="{ backgroundImage: `url(${backgroundUrl})` }"
   >
     <div class="flex flex-row gap-5">
