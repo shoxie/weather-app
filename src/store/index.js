@@ -17,11 +17,12 @@ export default new Vuex.Store({
   },
   mutations: {
     updateCountry(state) {
+      console.log(window.location.host)
       Vue.axios.get("https://api.ipify.org?format=json").then((res) => {
         if (!res.data) return;
         Vue.axios
           .get(
-            `https://ip-api.com/json/${res.data.ip}?fields=status,message,continent,continentCode,country,countryCode,regionName,city,lat,lon`
+            `http://ip-api.com/json/${res.data.ip}?fields=status,message,continent,continentCode,country,countryCode,regionName,city,lat,lon`
           )
           .then((data) => {
             if (data.data.status === "fail") return;
