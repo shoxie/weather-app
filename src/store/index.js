@@ -21,7 +21,7 @@ export default new Vuex.Store({
         if (!res.data) return;
         Vue.axios
           .get(
-            `http://ip-api.com/json/${res.data.ip}?fields=status,message,continent,continentCode,country,countryCode,regionName,city,lat,lon`
+            `https://ip-api.com/json/${res.data.ip}?fields=status,message,continent,continentCode,country,countryCode,regionName,city,lat,lon`
           )
           .then((data) => {
             if (data.data.status === "fail") return;
@@ -32,7 +32,6 @@ export default new Vuex.Store({
             state.lon = data.data.lon;
             let query = data.data.city;
             client.photos.search({ query, per_page: 1 }).then((data) => {
-              console.log(data);
               state.backgroundUrl = data.photos[0].src.original;
             });
             Vue.axios
