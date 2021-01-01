@@ -1,6 +1,7 @@
 <template>
-  <div id="app" class="container mx-auto">
-    <Background />
+  <div id="app" class=" min-h-screen container mx-auto">
+    <div class="h-10"></div>
+    <Background class="pt-10"/>
   </div>
 </template>
 
@@ -18,12 +19,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
