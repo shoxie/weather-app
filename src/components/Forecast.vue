@@ -8,7 +8,7 @@
     <div class="flex flex-col pt-10">
       <div class="flex flex-col gap-5">
         <div class="flex flex-row justify-between border-2 rounded-2xl">
-          <div class="flex flex-row gap-5">
+          <div class="flex flex-row gap-5 p-4">
             <img :src="bg1" />
             <div class="flex flex-col">
               <span>{{
@@ -31,7 +31,7 @@
     <div class="flex flex-col pt-10">
       <div class="flex flex-col gap-5">
         <div class="flex flex-row justify-between border-2 rounded-2xl">
-          <div class="flex flex-row gap-5">
+          <div class="flex flex-row gap-5 p-4">
             <img :src="bg2" />
             <div class="flex flex-col">
               <span>{{
@@ -54,7 +54,7 @@
     <div class="flex flex-col pt-10">
       <div class="flex flex-col gap-5">
         <div class="flex flex-row justify-between border-2 rounded-2xl">
-          <div class="flex flex-row gap-5">
+          <div class="flex flex-row gap-5 p-4">
             <img :src="bg3" />
             <div class="flex flex-col">
               <span>{{
@@ -82,15 +82,15 @@ export default {
   name: "Forecast",
   props: ["forecast"],
   mounted() {
-    // this.bg1 = `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[1].weather_state_abbr}.png`
-    // this.bg2 = `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[2].weather_state_abbr}.png`
-    // this.bg3 = `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[3].weather_state_abbr}.png`
+    this.bg1 = `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[1].weather_state_abbr}.png`
+    this.bg2 = `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[2].weather_state_abbr}.png`
+    this.bg3 = `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[3].weather_state_abbr}.png`
   },
   data() {
     return {
-      bg1: `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[1].weather_state_abbr}.png`,
-      bg2: `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[2].weather_state_abbr}.png`,
-      bg3: `https://www.metaweather.com/static/img/weather/png/64/${this.forecast[3].weather_state_abbr}.png`,
+      bg1: String,
+      bg2: String,
+      bg3: String,
     };
   },
 };

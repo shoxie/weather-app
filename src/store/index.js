@@ -8,12 +8,12 @@ const client = createClient(
 );
 export default new Vuex.Store({
   state: {
-    country: "",
-    continent: "",
-    city: "",
-    backgroundUrl: "",
-    lat: "",
-    lon: "",
+    country: String,
+    continent: String,
+    city: String,
+    backgroundUrl: String,
+    lat: String,
+    lon: String,
     forecast: "",
   },
   mutations: {

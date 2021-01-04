@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       currentTemp: 0,
-      weatherState: "",
-      weatherStateName: "",
+      weatherState: String,
+      weatherStateName: String,
     };
   },
   async beforeCreate() {
